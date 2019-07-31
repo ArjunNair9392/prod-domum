@@ -1,0 +1,87 @@
+.DatePickerContainer {
+  max-width: 300px;
+  background-color: #fff;
+  padding: 5px;
+  box-shadow: 0 0 2px 3px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+
+.DatePickerContainer__Title {
+  font-size: 0.7rem;
+  color: #4f4f4f;
+}
+
+.WeekdayContainer {
+  display: flex;
+}
+
+.Week {
+  display: flex;
+}
+
+.Weekday {
+  display: block;
+  flex: 1 0 0%;
+  padding: 0.2rem;
+  background: transparent;
+  font-size: 0.7rem;
+  color: #637381;
+  text-align: center;
+}
+
+.MonthContainer {
+  flex-wrap: wrap;
+}
+
+.Month {
+  flex: 1 1 auto;
+  margin-top: spacing();
+  margin-left: spacing();
+  max-width: calc(100% - 1.1rem);
+  min-width: rem(180px);
+}
+
+.Day {
+  display: block;
+  flex: 1 0 0%;
+  width: 12.28571%;
+  margin: 0;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid #dfe3e8;
+  border-radius: 0;
+  outline: none;
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Day + .Day,
+.Day + .EmptyStateDay {
+  margin-left: -1px;
+}
+
+.Day--selected {
+  background: #ffa726;
+  border: 1px solid #ffa726;
+  color: #fff;
+}
+
+.Day--hovering {
+  background: #f2f2f2;
+  border: 1px solid #f2f2f2;
+}
+
+.EmptyStateDay {
+  display: block;
+  flex: 1 0 0%;
+  width: calc(100% / 7);
+  margin: 0;
+  padding: 0.6rem;
+  border: 1px solid #dfe3e8;
+}
+
+.EmptyStateDay + .EmptyStateDay,
+.EmptyStateDay + .Day {
+  margin-left: -1px;
+}
