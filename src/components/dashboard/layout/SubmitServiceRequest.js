@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
+import { createServiceRequest } from '../../../store/actions/serviceRequestActions';
 import '../../css/layout.css';
 
-class SubmitRequest extends Component {
+class SubmitServiceRequest extends Component {
   state = {
     description: '',
-    summary: ''
+    summary: '',
+    userID: this.props.auth.uid
   }
 
   handleChange = (e) => {
@@ -15,14 +19,25 @@ class SubmitRequest extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    if(this.props.auth.uid){
+      // console.log('dsadasdasdas', this.props.auth.uid);
+      // this.setState({
+      //   userID: this.props.auth.uid
+      // });
+      this.props.createServiceRequest(this.state);
+      // console.log(this.state);
+    }
   }
 
   render() {
+
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to='/signin' />
+
     return (
       <div className="layoutContainer">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Submit Request</h5>
+          <h5 className="grey-text text-darken-3">Submit Service Request</h5>
 
           <div className="input-field addPadding">
             <label className="addPadding" htmlFor="description">Description</label>
@@ -43,4 +58,16 @@ class SubmitRequest extends Component {
   };
 }
 
-export default SubmitRequest;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createServiceRequest: (serviceRequest) => dispatch(createServiceRequest(serviceRequest))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitServiceRequest);
