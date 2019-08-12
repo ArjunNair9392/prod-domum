@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {addUser} from '../../store/actions/signUpActions'
 
 class SignUp extends Component {
   state = {
@@ -16,7 +18,9 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log('in SignUp');
     console.log(this.state);
+    this.props.addUser(this.state);
   }
 
   render() {
@@ -53,4 +57,10 @@ class SignUp extends Component {
     )
   }
 }
-export default SignUp;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addUser: (user) => dispatch(addUser(user))
+  }
+}
+export default connect(null, mapDispatchToProps)(SignUp);
