@@ -4,6 +4,7 @@ import Navbar from './components/header/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import ServiceRequest from './components/serviceRequest/ServiceRequest';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Route path='/home' component={Dashboard} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/serviceRequest' component={ServiceRequest} />
           </Switch>
         </div>
       </BrowserRouter>
