@@ -5,6 +5,11 @@
   padding: 10px;
 }
 
+.leftStyle {
+  padding: 10px;
+  height: 100%;
+}
+
 .innerContainer {
   background-color: #fafafa;
   display: flex;
@@ -14,4 +19,8 @@
 
 .datePickerStyle {
   padding: 10px;
+}
+
+.flex-col-scroll {
+  overflow-y: scroll;
 }

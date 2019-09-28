@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter,} from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 import SubmitServiceRequest from './layout/SubmitServiceRequest';
+import NewsFeedList from './layout/NewsFeedList';
+import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
+import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
+import Grid from '@material-ui/core/Grid';
 import '../css/dashboard.css';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 
 class Dashboard extends Component {
@@ -15,28 +21,6 @@ class Dashboard extends Component {
     this.state = {
       selectedDate: new Date()
     };
-  }
-
-  render() {
-    console.log(this.props);
-    const { auth } = this.props;
-    if (!auth.uid) return <Redirect to='/signin' />
-    return (
-      <BrowserRouter>
-      <div className="container">
-            <div className="innerContainer center z-depth-2">
-              <div className="middleStyle">
-                {
-                  this.props.location.pathname === "/home/submitservicerequest" && <SubmitServiceRequest />
-                }
-              </div>
-              <div className="datePickerStyle">
-                <DatePicker fullDate={this.state.selectedDate} onDayClick={this.onDayClick} />
-              </div>
-            </div>
-          </div>
-      </BrowserRouter>
-    );
   }
 
   onDayClick(newDay) {
@@ -50,13 +34,53 @@ class Dashboard extends Component {
       )
     })
   }
+
+  render() {
+    console.log(this.props);
+    const { auth, socialFeeds } = this.props;
+    if (!auth.uid) return <Redirect to='/signin' />
+
+    return (
+      <div>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+          spacing={3}
+        >
+          <Grid item xs={2}>
+            <Menubar />
+          </Grid>
+
+          <Grid item xs={6}>
+            <Route path='/home/submitservicerequest' component={SubmitServiceRequest} />
+            <Route
+              path='/home/newsfeed'
+              component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
+          </Grid>
+
+          <Grid item xs={3}>
+            <DatePicker fullDate={this.state.selectedDate} onDayClick={this.onDayClick} />
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     dashboard: 'testDashboard',
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    socialFeeds: state.firestore.ordered.socialFeeds
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'socialFeeds' }
+  ])
+)(Dashboard);
