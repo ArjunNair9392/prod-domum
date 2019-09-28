@@ -4,6 +4,7 @@ import Navbar from './components/header/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import ServiceRequest from './components/serviceRequest/ServiceRequest';
 
 class App extends Component {
   render() {
