@@ -5,7 +5,32 @@
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 
+.tabStyle {
+  float: left;
+}
+
+.menubarContainer {
+  padding: 0.1px;
+}
+
 .addPadding {
   padding-right: 20px;
   padding-left: 20px;
+}
+
+.addPaddingTopBottom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.menuBackground:hover {
+  background: #eeeeee;
+}
+
+.cardMarginTop {
+  margin-top: 20px;
+}
+
+.cardSpacingTop {
+  margin-top: 5px;
 }

@@ -13,9 +13,11 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Dashboard} />
-            <Route path='/home' component={Dashboard} />
+            <Route exact path='/home' component={Dashboard} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/home/submitservicerequest' component={Dashboard} />
+            <Route path='/home/newsfeed' component={Dashboard} />
           </Switch>
         </div>
       </BrowserRouter>

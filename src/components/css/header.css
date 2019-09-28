@@ -1,3 +1,12 @@
 .navbarStyle {
   margin-bottom: 40px;
 }
+
+.grow: {
+  flex-grow: 1;
+}
+
+.navStyle: {
+  margin-bottom: 40;
+  background-color: #29b6f6;
+}

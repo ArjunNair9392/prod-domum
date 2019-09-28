@@ -48,7 +48,7 @@
   margin: 0;
   padding: 0.6rem;
   background: transparent;
-  border: 1px solid #dfe3e8;
+  border: 0px solid #dfe3e8;
   border-radius: 0;
   outline: none;
   font-size: 0.8rem;
@@ -63,13 +63,13 @@
 
 .Day--selected {
   background: #ffa726;
-  border: 1px solid #ffa726;
+  border: 0px solid #ffa726;
   color: #fff;
 }
 
 .Day--hovering {
   background: #f2f2f2;
-  border: 1px solid #f2f2f2;
+  border: 0px solid #f2f2f2;
 }
 
 .EmptyStateDay {
@@ -78,7 +78,7 @@
   width: calc(100% / 7);
   margin: 0;
   padding: 0.6rem;
-  border: 1px solid #dfe3e8;
+  border: 0px solid #dfe3e8;
 }
 
 .EmptyStateDay + .EmptyStateDay,
