@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 var firebaseConfig = {
-  apiKey: "z-l0L_DdJQVq9COkUkIDzedE",
+  apiKey: "AIzaSyDjbBnuJ3RB-l0L_DdJQVq9COkUkIDzedE",
   authDomain: "domum-f6e24.firebaseapp.com",
   databaseURL: "https://domum-f6e24.firebaseio.com",
   projectId: "domum-f6e24",
