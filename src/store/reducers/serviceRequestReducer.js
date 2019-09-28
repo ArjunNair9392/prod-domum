@@ -1,21 +1,16 @@
-const initState = {
-  projects: [
-    {id: '1', description: 'help me find peach', summary: 'blah blah blah'},
-    {id: '2', description: 'collect all the stars', summary: 'blah blah blah'}
-  ]
-}
-
-const submitServiceRequest = (state = initState, action) => {
-  switch (action.type) {
-    case 'CREATE_SERVICE_REQUEST_SUCCESS':
-      console.log('create request success', action);
+const initState = {};
+const createRequestReducer = (state = initState, action) => {
+  switch(action.type){
+    case 'Create_Request' :
+      console.log('Request Created', action.serviceRequest);
       return state;
-    case 'CREATE_SERVICE_REQUEST_ERROR':
-      console.log('create request errror', action.err);
+    case 'Create_Request_Err' :
+      console.log('Request Creation error', action.serviceRequest);
       return state;
     default:
-      return state;
+      return state;   
   }
-};
+  
+}
 
-export default submitServiceRequest;
+export default createRequestReducer;
