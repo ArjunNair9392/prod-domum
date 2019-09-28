@@ -39,7 +39,6 @@ class Dashboard extends Component {
     console.log(this.props);
     const { auth, socialFeeds } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
-
     return (
       <div>
         <Grid
