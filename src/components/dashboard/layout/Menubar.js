@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../../css/layout.css';
 
 const Menubar = () => (
-  <div className= "layoutContainer menubarContainer">
+  <div className= "menubarContainer">
     <ul>
       <div className="menuBackground">
         <li className="addPaddingTopBottom addPadding"><NavLink to="/home/newsfeed">News</NavLink></li>

@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   navStyle: {
-    marginBottom: 40,
+    marginBottom: 0,
     backgroundColor: lightBlue[400],
   },
   sectionDesktop: {
@@ -124,7 +124,7 @@ const Navbar = (props) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" className={classes.navStyle}>
+      <AppBar position="static" className={classes.navStyle} elevation={0}>
       <Toolbar>
         <Link to="/" style={{ color: '#FFF', fontSize: 25, position: 'absolute'}}>
           Domum

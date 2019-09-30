@@ -2,8 +2,6 @@
   max-width: 300px;
   background-color: #fff;
   padding: 5px;
-  box-shadow: 0 0 2px 3px rgba(63, 63, 68, 0.05),
-    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 
 .DatePickerContainer__Title {

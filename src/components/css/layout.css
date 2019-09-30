@@ -1,8 +1,11 @@
 .layoutContainer {
   background-color: #fff;
   padding: 5px;
-  box-shadow: 0 0 2px 3px rgba(63, 63, 68, 0.05),
-    0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.container-border {
+  border: 1px solid #e6e6e6;
 }
 
 .tabStyle {
@@ -10,7 +13,7 @@
 }
 
 .menubarContainer {
-  padding: 0.1px;
+  padding: 0px;
 }
 
 .addPadding {
@@ -28,9 +31,23 @@
 }
 
 .cardMarginTop {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .cardSpacingTop {
-  margin-top: 5px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.btnContainer {
+  justify-content: flex-end;
+  display: flex;
+  flex-flow: row;
+}
+
+.floatingBtnContainer {
+  margin-right: auto;
+}
+
+.orangeColor {
+  background-color: #ef6c00;
 }

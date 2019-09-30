@@ -9,6 +9,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import CardActions from '@material-ui/core/CardActions';
 import { makeStyles } from '@material-ui/core/styles';
+import { orange } from '@material-ui/core/colors';
 import clsx from 'clsx';
 import '../css/layout.css';
 
@@ -33,6 +34,9 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  avatarColor: {
+    backgroundColor: orange[700],
+  },
 }));
 
 export default function DomumCard(props) {
@@ -45,12 +49,12 @@ export default function DomumCard(props) {
   }
 
   return (
-    <Card className="cardSpacingTop">
+    <Card className="cardSpacingTop" elevation={0} square>
       <CardHeader
       {...(props.Avatar ?
         {
           avatar:
-            <Avatar aria-label="recipe" className="orange lighten-1">
+            <Avatar aria-label="recipe" className={classes.avatarColor}>
               {props.Avatar}
             </Avatar>
 

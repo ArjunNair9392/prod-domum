@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import DomumCard from '../../usableComponents/DomumCard';
 import DomumButton from '../../usableComponents/DomumButton';
+import DomumFloatingButton from '../../usableComponents/DomumFloatingButton';
 import Grid from '@material-ui/core/Grid';
-import M from "materialize-css";
 import { createSocialFeed } from '../../../store/actions/socialFeedActions';
 
 import "react-tabs/style/react-tabs.css";
@@ -13,9 +12,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 
 class NewsFeedList extends Component {
-  componentDidMount() {
-    M.AutoInit();
-  }
 
   state = {
     userName: 'Arjun Nair',
@@ -44,9 +40,9 @@ class NewsFeedList extends Component {
 
     const { socialFeeds } = this.props;
     return (
-      <div>
+      <div className="container-border">
         <div className= "layoutContainer">
-          <div id="social" className="col s12">
+          <div id="social" className="col s10">
             <form onSubmit={this.handleSubmit} className="white">
 
               <div className="input-field addPadding">
@@ -55,9 +51,15 @@ class NewsFeedList extends Component {
                 </label>
                 <textarea id="userMessage" className="materialize-textarea" onChange={this.handleChange} />
               </div>
-
-              <DomumButton Content='Post'/>
             </form>
+            <div className="btnContainer">
+              <div className="floatingBtnContainer">
+                <DomumFloatingButton PhotoLibraryIcon />
+                <DomumFloatingButton AddShoppingCartIcon />
+                <DomumFloatingButton PollIcon />
+              </div>
+              <DomumFloatingButton SendIcon handleSubmit={this.handleSubmit} />
+            </div>
           </div>
         </div>
         <Grid

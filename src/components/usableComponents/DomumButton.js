@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 
 const Btn = withStyles(theme => ({
   root: {
-    backgroundColor: orange[400],
+    backgroundColor: orange[700],
   },
 }))(Button);
 
@@ -19,7 +19,7 @@ const Btn = withStyles(theme => ({
 export default function DomumButton(props) {
   const classes = useStyles();
   return (
-    <Btn variant="contained" className={classes.button}>
+    <Btn className={classes.button} size="small" square>
         {props.Content}
     </Btn>
   );
