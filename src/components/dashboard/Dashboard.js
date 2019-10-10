@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
-import SubmitServiceRequest from './layout/SubmitServiceRequest';
+import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
 import NewsFeedList from './layout/NewsFeedList';
 import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import Grid from '@material-ui/core/Grid';
 import '../css/dashboard.css';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -37,7 +36,7 @@ class Dashboard extends Component {
 
   render() {
     console.log(this.props);
-    const { auth, socialFeeds } = this.props;
+    const { auth, socialFeeds, serviceRequest } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
     return (
       <div>
@@ -53,7 +52,7 @@ class Dashboard extends Component {
           </Grid>
 
           <Grid item xs={6}>
-            <Route path='/home/submitservicerequest' component={SubmitServiceRequest} />
+            <Route path='/home/submitservicerequest' component={() => <SubmitServiceRequest serviceRequest={serviceRequest} /> } />
             <Route
               path='/home/newsfeed'
               component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
@@ -73,13 +72,16 @@ const mapStateToProps = (state) => {
   return {
     dashboard: 'testDashboard',
     auth: state.firebase.auth,
-    socialFeeds: state.firestore.ordered.socialFeeds
+    socialFeeds: state.firestore.ordered.socialFeeds,
+    serviceRequest: state.firestore.ordered.serviceRequest
   }
 }
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'socialFeeds' }
+    { collection: 'socialFeeds',
+      collection: 'serviceRequest'
+   }
   ])
 )(Dashboard);

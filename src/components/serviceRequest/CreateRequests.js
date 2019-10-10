@@ -72,8 +72,8 @@ class CreateRequests extends Component {
             </Select>
           </div>
           <div className="input-field addPadding">
-            <label className="addPadding" htmlFor="desctiption">Problem Description</label>
-            <textarea id="desctiption" className="materialize-textarea" onChange={this.handleChange} />
+            <label className="addPadding" htmlFor="description">Problem Description</label>
+            <textarea id="description" className="materialize-textarea" onChange={this.handleChange} />
           </div>
           {/* <div className="input-field addPadding">
             <h6>Do we have your permission to enter the apartment?</h6>
