@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { Select, Button, DatePicker, TimePicker } from 'react-materialize';
 import { createServiceRequest } from '../../store/actions/serviceRequestActions';
 
@@ -9,7 +8,7 @@ class CreateRequests extends Component {
     super(props);
     this.state =
       {
-        userId: 'test123',
+        userId: '',
         problem: '',
         location: '',
         description: '',

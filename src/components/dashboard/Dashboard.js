@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
+import Events from '../events/Events';
 import NewsFeedList from './layout/NewsFeedList';
 import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
@@ -52,7 +53,12 @@ class Dashboard extends Component {
           </Grid>
 
           <Grid item xs={6}>
-            <Route path='/home/submitservicerequest' component={() => <SubmitServiceRequest serviceRequest={serviceRequest} /> } />
+            <Route 
+              path='/home/submitservicerequest' 
+              component={() => <SubmitServiceRequest serviceRequest={serviceRequest} /> } />
+              <Route 
+              path='/home/events' 
+              component={Events} />
             <Route
               path='/home/newsfeed'
               component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
