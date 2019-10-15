@@ -92,9 +92,8 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'socialFeeds',
-      collection: 'serviceRequest',
-      collection: 'marketPlace'
-   }
+    { collection: 'socialFeeds'},
+    { collection: 'serviceRequest'},
+    { collection: 'marketPlace'},
   ])
 )(Dashboard);
