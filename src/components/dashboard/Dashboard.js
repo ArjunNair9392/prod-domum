@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
-import SubmitServiceRequest from './layout/SubmitServiceRequest';
+import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
+import Events from '../events/Events';
 import NewsFeedList from './layout/social/NewsFeedList';
 import MarketPlace from './layout/marketPlace/MarketPlace';
 import UserProfile from './layout/userProfile/UserProfile';
@@ -39,7 +40,7 @@ class Dashboard extends Component {
 
   render() {
     console.log(this.props);
-    const { auth, socialFeeds, marketPlace } = this.props;
+    const { auth, socialFeeds, marketPlace, serviceRequest } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
     return (
       <div className="container">
@@ -55,7 +56,12 @@ class Dashboard extends Component {
           </Grid>
 
           <Grid item xs={6}>
-            <Route path='/home/submitservicerequest' component={SubmitServiceRequest} />
+            <Route
+              path='/home/submitservicerequest'
+              component={() => <SubmitServiceRequest serviceRequest={serviceRequest} /> } />
+              <Route
+              path='/home/events'
+              component={Events} />
             <Route
               path='/home/newsfeed'
               component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
@@ -82,14 +88,17 @@ const mapStateToProps = (state) => {
     dashboard: 'testDashboard',
     auth: state.firebase.auth,
     socialFeeds: state.firestore.ordered.socialFeeds,
-    marketPlace: state.firestore.ordered.marketPlace
+    marketPlace: state.firestore.ordered.marketPlace,
+    serviceRequest: state.firestore.ordered.serviceRequest
   }
 }
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'socialFeeds'},
-    { collection: 'marketPlace'}
+    { collection: 'socialFeeds',
+      collection: 'serviceRequest',
+      collection: 'marketPlace'
+   }
   ])
 )(Dashboard);

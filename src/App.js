@@ -21,6 +21,7 @@ class App extends Component {
             <Route path='/home/newsfeed' component={Dashboard} />
             <Route path='/home/marketplace' component={Dashboard} />
             <Route path='/home/userprofile' component={Dashboard} />
+            <Route path='/home/events' component={Dashboard} />
           </Switch>
         </div>
       </BrowserRouter>
