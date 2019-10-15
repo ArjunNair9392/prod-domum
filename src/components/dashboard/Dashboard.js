@@ -4,7 +4,6 @@ import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
 import Events from '../events/Events';
 import NewsFeedList from './layout/social/NewsFeedList';
 import MarketPlace from './layout/marketPlace/MarketPlace';
-import UserProfile from './layout/userProfile/UserProfile';
 import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
 import CalendarUI from './datepicker/CalendarUI';
@@ -68,9 +67,6 @@ class Dashboard extends Component {
             <Route
               path='/home/marketplace'
               component={() => <MarketPlace marketPlace={marketPlace}/> } />
-            <Route
-                path='/home/userProfile'
-                component={() => <UserProfile /> } />
           </Grid>
 
           <Grid item xs={3}>
