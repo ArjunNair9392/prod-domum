@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import SubmitServiceRequest from './layout/SubmitServiceRequest';
-import NewsFeedList from './layout/NewsFeedList';
+import NewsFeedList from './layout/social/NewsFeedList';
+import MarketPlace from './layout/marketPlace/MarketPlace';
+import UserProfile from './layout/userProfile/UserProfile';
 import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
+import CalendarUI from './datepicker/CalendarUI';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import Grid from '@material-ui/core/Grid';
 import '../css/dashboard.css';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -37,10 +39,10 @@ class Dashboard extends Component {
 
   render() {
     console.log(this.props);
-    const { auth, socialFeeds } = this.props;
+    const { auth, socialFeeds, marketPlace } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
     return (
-      <div>
+      <div className="container">
         <Grid
           container
           direction="row"
@@ -57,10 +59,16 @@ class Dashboard extends Component {
             <Route
               path='/home/newsfeed'
               component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
+            <Route
+              path='/home/marketplace'
+              component={() => <MarketPlace marketPlace={marketPlace}/> } />
+            <Route
+                path='/home/userProfile'
+                component={() => <UserProfile /> } />
           </Grid>
 
           <Grid item xs={3}>
-            <DatePicker fullDate={this.state.selectedDate} onDayClick={this.onDayClick} />
+            <CalendarUI/>
           </Grid>
         </Grid>
       </div>
@@ -73,13 +81,15 @@ const mapStateToProps = (state) => {
   return {
     dashboard: 'testDashboard',
     auth: state.firebase.auth,
-    socialFeeds: state.firestore.ordered.socialFeeds
+    socialFeeds: state.firestore.ordered.socialFeeds,
+    marketPlace: state.firestore.ordered.marketPlace
   }
 }
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'socialFeeds' }
+    { collection: 'socialFeeds'},
+    { collection: 'marketPlace'}
   ])
 )(Dashboard);

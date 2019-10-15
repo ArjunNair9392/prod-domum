@@ -1,7 +1,16 @@
 .layoutContainer {
   background-color: #fff;
   padding: 5px;
-  border-bottom: 1px solid #e6e6e6;
+  border: 2px solid #e6e6e6 !important;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.boxShadow {
+  box-shadow: 0 0 0px 0px rgba(63, 63, 68, 0.05),
+    0 0px 0px 0 rgba(63, 63, 68, 0.15) !important;
 }
 
 .container-border {
@@ -31,11 +40,12 @@
 }
 
 .cardMarginTop {
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .cardSpacingTop {
-  border-top: 1px solid #e6e6e6;
+  border: 2px solid #e6e6e6;
+  margin-top: 5px;
 }
 
 .btnContainer {
