@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 
 const Btn = withStyles(theme => ({
   root: {
-    backgroundColor: orange[700],
+    backgroundColor: orange[400],
   },
 }))(Button);
 

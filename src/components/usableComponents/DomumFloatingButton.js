@@ -11,12 +11,13 @@ import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PollIcon from '@material-ui/icons/Poll';
 import SendIcon from '@material-ui/icons/Send';
+import CloseIcon from '@material-ui/icons/Close';
 
 
 const useStyles = makeStyles(theme => ({
   fab: {
     margin: theme.spacing(1),
-    color: orange[700],
+    color: orange[400],
   },
 }));
 
@@ -29,6 +30,8 @@ function icon(props) {
     return <PollIcon />;
   }else if(props.SendIcon){
     return <SendIcon />;
+  }else if(props.CloseIcon){
+    return <CloseIcon />;
   }
 }
 export default function DomumFloatingButton(props) {
