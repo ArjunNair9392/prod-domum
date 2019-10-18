@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import DomumCard from '../../usableComponents/DomumCard';
-import DomumButton from '../../usableComponents/DomumButton';
-import DomumFloatingButton from '../../usableComponents/DomumFloatingButton';
+import DomumCard from '../../../usableComponents/DomumCard';
+import DomumButton from '../../../usableComponents/DomumButton';
+import DomumFloatingButton from '../../../usableComponents/DomumFloatingButton';
 import Grid from '@material-ui/core/Grid';
-import { createSocialFeed } from '../../../store/actions/socialFeedActions';
+import { createSocialFeed } from '../../../../store/actions/socialFeedActions';
 
 import "react-tabs/style/react-tabs.css";
-import '../../css/layout.css';
+import '../../../css/layout.css';
+import SocialPoll from './SocialPoll';
 
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 
 class NewsFeedList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.SocialPollRef = React.createRef();
+  }
 
   state = {
     userName: 'Arjun Nair',
@@ -22,6 +28,10 @@ class NewsFeedList extends Component {
     this.setState({
       [e.target.id]: e.target.value
     });
+  }
+
+  handleDialogClick = (e) => {
+    this.SocialPollRef.current.handleClickOpen();
   }
 
   handleSubmit = (e) => {
@@ -40,8 +50,8 @@ class NewsFeedList extends Component {
 
     const { socialFeeds } = this.props;
     return (
-      <div className="container-border">
-        <div className= "layoutContainer">
+      <div>
+        <div className= "layoutContainer boxShadow">
           <div id="social" className="col s10">
             <form onSubmit={this.handleSubmit} className="white">
 
@@ -56,15 +66,13 @@ class NewsFeedList extends Component {
               <div className="floatingBtnContainer">
                 <DomumFloatingButton PhotoLibraryIcon />
                 <DomumFloatingButton AddShoppingCartIcon />
-                <DomumFloatingButton PollIcon />
+                <DomumFloatingButton PollIcon handleSubmit={this.handleDialogClick}/>
               </div>
               <DomumFloatingButton SendIcon handleSubmit={this.handleSubmit} />
             </div>
           </div>
+          <SocialPoll ref={this.SocialPollRef}/>
         </div>
-        <Grid
-          className="cardMarginTop"
-        >
           { socialFeeds && socialFeeds.map(socialFeed => {
             return (
               <DomumCard
@@ -74,7 +82,6 @@ class NewsFeedList extends Component {
                 key={socialFeed.id} />
             )
           })}
-        </Grid>
       </div>
     )
   };

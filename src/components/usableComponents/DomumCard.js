@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   avatarColor: {
-    backgroundColor: orange[700],
+    backgroundColor: orange[400],
   },
 }));
 
@@ -49,7 +49,7 @@ export default function DomumCard(props) {
   }
 
   return (
-    <Card className="cardSpacingTop" elevation={0} square>
+    <Card className="cardSpacingTop boxShadow">
       <CardHeader
       {...(props.Avatar ?
         {
