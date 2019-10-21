@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { Select, Button, DatePicker, TimePicker } from 'react-materialize';
 import { createServiceRequest } from '../../store/actions/serviceRequestActions';
 
@@ -9,7 +8,7 @@ class CreateRequests extends Component {
     super(props);
     this.state =
       {
-        userId: 'test123',
+        userId: '',
         problem: '',
         location: '',
         description: '',
@@ -72,8 +71,8 @@ class CreateRequests extends Component {
             </Select>
           </div>
           <div className="input-field addPadding">
-            <label className="addPadding" htmlFor="desctiption">Problem Description</label>
-            <textarea id="desctiption" className="materialize-textarea" onChange={this.handleChange} />
+            <label className="addPadding" htmlFor="description">Problem Description</label>
+            <textarea id="description" className="materialize-textarea" onChange={this.handleChange} />
           </div>
           {/* <div className="input-field addPadding">
             <h6>Do we have your permission to enter the apartment?</h6>
