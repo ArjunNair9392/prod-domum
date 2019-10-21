@@ -13,6 +13,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.firestore().settings({timestampsInSnapshots: true});
+//commented the below setting as it needs to be removed as per notifications in inspect.
+// firebase.firestore().settings({timestampsInSnapshots: true});
 
 export default firebase;

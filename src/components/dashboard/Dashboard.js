@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import SubmitServiceRequest from './layout/SubmitServiceRequest';
 import NewsFeedList from './layout/NewsFeedList';
-import Menubar from './layout/Menubar';
+import NavigationSideMenu from './layout/NavigationSideMenu';
 import DatePicker from './datepicker/DatePicker';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import Grid from '@material-ui/core/Grid';
 import '../css/dashboard.css';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -24,7 +23,7 @@ class Dashboard extends Component {
   }
 
   onDayClick(newDay) {
-    const {selectedDate} = this.state;
+    const { selectedDate } = this.state;
 
     this.setState({
       selectedDate: new Date(
@@ -49,16 +48,14 @@ class Dashboard extends Component {
           spacing={3}
         >
           <Grid item xs={2}>
-            <Menubar />
+            <NavigationSideMenu />
           </Grid>
-
           <Grid item xs={6}>
             <Route path='/home/submitservicerequest' component={SubmitServiceRequest} />
             <Route
               path='/home/newsfeed'
-              component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
+              component={() => <NewsFeedList socialFeeds={socialFeeds} />} />
           </Grid>
-
           <Grid item xs={3}>
             <DatePicker fullDate={this.state.selectedDate} onDayClick={this.onDayClick} />
           </Grid>
