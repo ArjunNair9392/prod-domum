@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-// import '../../css/layout.css';
+import '../../css/layout.css';
 import { MenuList } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,7 +18,9 @@ class NavigationSideMenu extends Component {
         <MenuItem><NavLink to="/home/">Payments</NavLink> </MenuItem>
         <MenuItem><NavLink to="/home/">Visitors</NavLink></MenuItem>
         <MenuItem><NavLink to="/home/">Reservations</NavLink></MenuItem>
-        <MenuItem><NavLink to="/home/">Events</NavLink></MenuItem>
+        <MenuItem><NavLink to="/home/events">Events</NavLink></MenuItem>
+        <MenuItem><NavLink to="/home/marketplace">Marketplace</NavLink></MenuItem>
+
       </MenuList>
     );
   }
