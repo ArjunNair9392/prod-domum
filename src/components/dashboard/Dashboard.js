@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
 import Events from '../events/Events';
 import NewsFeedList from './layout/social/NewsFeedList';
 import MarketPlace from './layout/marketPlace/MarketPlace';
 import UserProfile from './layout/userProfile/UserProfile';
 import Menubar from './layout/Menubar';
+import NavigationSideMenu from './layout/NavigationSideMenu';
 import DatePicker from './datepicker/DatePicker';
 import CalendarUI from './datepicker/CalendarUI';
 import { connect } from 'react-redux';
@@ -27,7 +28,7 @@ class Dashboard extends Component {
   }
 
   onDayClick(newDay) {
-    const {selectedDate} = this.state;
+    const { selectedDate } = this.state;
 
     this.setState({
       selectedDate: new Date(
@@ -60,19 +61,18 @@ class Dashboard extends Component {
           alignContent="center"
         >
           <Grid item xs={2}>
-            <Menubar />
+            <NavigationSideMenu />
           </Grid>
-
           <Grid item xs={6}>
             <Route
               path='/home/submitservicerequest'
-              component={() => <SubmitServiceRequest serviceRequest={serviceRequest} /> } />
-              <Route
+              component={() => <SubmitServiceRequest serviceRequest={serviceRequest} />} />
+            <Route
               path='/home/events'
               component={Events} />
             <Route
               path='/home/newsfeed'
-              component={() => <NewsFeedList socialFeeds={socialFeeds}/> } />
+              component={() => <NewsFeedList socialFeeds={socialFeeds} />} />
             <Route
               path='/home/marketplace'
               component={() => <MarketPlace marketPlace={marketPlace}/> } />
@@ -81,9 +81,8 @@ class Dashboard extends Component {
               path='/home/userprofile'
               component={() => <UserProfile apartmentInfo={apartmentInfo} vehicleInfo={vehicleInfo}/> } />
           </Grid>
-
           <Grid item xs={3}>
-            <CalendarUI/>
+            <CalendarUI />
           </Grid>
         </Grid>
       </div>
