@@ -13,6 +13,15 @@
     0 0px 0px 0 rgba(63, 63, 68, 0.15) !important;
 }
 
+.mainContainer {
+  margin: auto;
+  max-width: 1500px;
+}
+
+.marginLeft {
+  margin-left: 20px;
+}
+
 .container-border {
   border: 1px solid #e6e6e6;
 }

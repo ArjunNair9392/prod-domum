@@ -4,6 +4,9 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import RemoveIcon from '@material-ui/icons/Remove';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import { orange } from '@material-ui/core/colors';
@@ -32,6 +35,16 @@ function icon(props) {
     return <SendIcon />;
   }else if(props.CloseIcon){
     return <CloseIcon />;
+  }else if(props.EditIcon){
+    return <EditIcon />;
+  }else if(props.AddIcon){
+    return <AddIcon />;
+  }else if(props.AddCircleIcon){
+    return <AddCircleIcon />;
+  }else if(props.RemoveIcon){
+    return <RemoveIcon />;
+  }else if(props.RemoveCircleIcon){
+    return <RemoveCircleIcon />;
   }
 }
 export default function DomumFloatingButton(props) {

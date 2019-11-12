@@ -70,9 +70,9 @@ export default function DomumCard(props) {
       />*/
       }
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <React.Fragment>
           {props.Content}
-        </Typography>
+        </React.Fragment>
       </CardContent>
 
 

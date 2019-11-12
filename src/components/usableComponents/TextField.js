@@ -28,14 +28,14 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
     [`& fieldset`]: {
       borderRadius: 0,
     },
   },
   dense: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0),
   },
   menu: {
     width: 200,

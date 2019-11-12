@@ -4,6 +4,7 @@ import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
 import Events from '../events/Events';
 import NewsFeedList from './layout/social/NewsFeedList';
 import MarketPlace from './layout/marketPlace/MarketPlace';
+import UserProfile from './layout/userProfile/UserProfile';
 import Menubar from './layout/Menubar';
 import DatePicker from './datepicker/DatePicker';
 import CalendarUI from './datepicker/CalendarUI';
@@ -39,16 +40,24 @@ class Dashboard extends Component {
 
   render() {
     console.log(this.props);
-    const { auth, socialFeeds, marketPlace, serviceRequest } = this.props;
+    const {
+      auth,
+      socialFeeds,
+      marketPlace,
+      serviceRequest,
+      apartmentInfo,
+      vehicleInfo
+     } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
     return (
-      <div className="container">
+      <div className="mainContainer">
         <Grid
           container
           direction="row"
           justify="center"
           alignItems="flex-start"
-          spacing={3}
+          spacing={1}
+          alignContent="center"
         >
           <Grid item xs={2}>
             <Menubar />
@@ -67,6 +76,10 @@ class Dashboard extends Component {
             <Route
               path='/home/marketplace'
               component={() => <MarketPlace marketPlace={marketPlace}/> } />
+
+            <Route
+              path='/home/userprofile'
+              component={() => <UserProfile apartmentInfo={apartmentInfo} vehicleInfo={vehicleInfo}/> } />
           </Grid>
 
           <Grid item xs={3}>
@@ -85,7 +98,9 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth,
     socialFeeds: state.firestore.ordered.socialFeeds,
     marketPlace: state.firestore.ordered.marketPlace,
-    serviceRequest: state.firestore.ordered.serviceRequest
+    serviceRequest: state.firestore.ordered.serviceRequest,
+    apartmentInfo: state.firestore.ordered.apartmentInfo,
+    vehicleInfo: state.firestore.ordered.vehicleInfo
   }
 }
 
@@ -95,5 +110,7 @@ export default compose(
     { collection: 'socialFeeds'},
     { collection: 'serviceRequest'},
     { collection: 'marketPlace'},
+    { collection: 'apartmentInfo'},
+    { collection: 'vehicleInfo'},
   ])
 )(Dashboard);
