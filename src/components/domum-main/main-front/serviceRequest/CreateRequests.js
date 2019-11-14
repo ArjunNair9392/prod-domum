@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Select, Button, DatePicker, TimePicker } from 'react-materialize';
-import { createServiceRequest } from '../../store/actions/serviceRequestActions';
+import { createServiceRequest } from '../../../../store/actions/serviceRequestActions';
 
 class CreateRequests extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class CreateRequests extends Component {
       [e.target.id]: e.target.value
     });
     console.log(this.state);
-  }  
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();

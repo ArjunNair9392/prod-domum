@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -10,8 +9,9 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import CardActions from '@material-ui/core/CardActions';
 import { makeStyles } from '@material-ui/core/styles';
+import { orange } from '@material-ui/core/colors';
 import clsx from 'clsx';
-import '../css/layout.css';
+import '../../components/css/layout.css';
 
 // props to pass in:
 // Avatar: User Intials
@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  avatarColor: {
+    backgroundColor: orange[400],
+  },
 }));
 
 export default function DomumCard(props) {
@@ -46,12 +49,12 @@ export default function DomumCard(props) {
   }
 
   return (
-    <Card className="cardSpacingTop">
+    <Card className="cardSpacingTop boxShadow">
       <CardHeader
       {...(props.Avatar ?
         {
           avatar:
-            <Avatar aria-label="recipe" className="orange lighten-1">
+            <Avatar aria-label="recipe" className={classes.avatarColor}>
               {props.Avatar}
             </Avatar>
 
@@ -67,13 +70,9 @@ export default function DomumCard(props) {
       />*/
       }
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <React.Fragment>
           {props.Content}
-          <b>Problem:</b>{props.Problem} <br/>
-          <b>Location:</b>{props.Location}<br/>
-          <b>Description:</b>{props.Description}<br/>
-          <b>Time scheduled:</b>{props.Time}
-        </Typography>
+        </React.Fragment>
       </CardContent>
 
 

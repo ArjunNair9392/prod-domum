@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import DomumCard from '../../../usableComponents/DomumCard';
-import DomumButton from '../../../usableComponents/DomumButton';
-import DomumFloatingButton from '../../../usableComponents/DomumFloatingButton';
+import DomumCard from '../../../../widgets/usableComponents/DomumCard';
+import DomumButton from '../../../../widgets/usableComponents/DomumButton';
+import DomumFloatingButton from '../../../../widgets/usableComponents/DomumFloatingButton';
 import Grid from '@material-ui/core/Grid';
 import ApartmentInfoForm from './ApartmentInfoForm';
 import VehicleInfoForm from './VehicleInfoForm';

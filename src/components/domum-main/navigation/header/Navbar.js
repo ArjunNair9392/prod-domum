@@ -12,9 +12,9 @@ import Button from '@material-ui/core/Button';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../css/header.css';
+import '../../../css/header.css';
 import { lightBlue } from '@material-ui/core/colors';
-import { signOut } from '../../store/actions/authActions';
+import { signOut } from '../../../../store/actions/authActions';
 
 const useStyles = makeStyles(theme => ({
   grow: {

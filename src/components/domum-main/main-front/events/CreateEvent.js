@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from '../usableComponents/TextField';
+import TextField from '../../../../widgets/usableComponents/TextField';
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class CreateEvent extends Component {
       [e.target.id]: e.target.value
     });
     console.log(this.state);
-  }  
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();

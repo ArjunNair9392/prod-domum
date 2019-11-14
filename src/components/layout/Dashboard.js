@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import SubmitServiceRequest from '../serviceRequest/ServiceRequest';
-import Events from '../events/Events';
-import NewsFeedList from './layout/social/NewsFeedList';
-import MarketPlace from './layout/marketPlace/MarketPlace';
-import UserProfile from './layout/userProfile/UserProfile';
-import Menubar from './layout/Menubar';
-import NavigationSideMenu from './layout/NavigationSideMenu';
-import DatePicker from './datepicker/DatePicker';
-import CalendarUI from './datepicker/CalendarUI';
+import SubmitServiceRequest from '../domum-main/main-front/serviceRequest/ServiceRequest';
+import Events from '../domum-main/main-front/events/Events';
+import NewsFeedList from '../domum-main/main-front/social/NewsFeedList';
+import MarketPlace from '../domum-main/main-front/marketPlace/MarketPlace';
+import UserProfile from '../domum-main/main-front/userProfile/UserProfile';
+import NavigationSideMenu from '../domum-main/navigation/NavigationSideMenu';
+import DatePicker from '../domum-main/datepicker/DatePicker';
+import CalendarUI from '../domum-main/datepicker/CalendarUI';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';

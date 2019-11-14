@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import DomumCard from '../../../usableComponents/DomumCard';
-import DomumButton from '../../../usableComponents/DomumButton';
-import TextField from '../../../usableComponents/TextField';
+import DomumCard from '../../../../widgets/usableComponents/DomumCard';
+import DomumButton from '../../../../widgets/usableComponents/DomumButton';
+import TextField from '../../../../widgets/usableComponents/TextField';
 import Grid from '@material-ui/core/Grid';
-import DomumFloatingButton from '../../../usableComponents/DomumFloatingButton';
+import DomumFloatingButton from '../../../../widgets/usableComponents/DomumFloatingButton';
 import VehicleInfoGridComp from './VehicleInfoGridComp';
 import { updateVehicleInfo } from '../../../../store/actions/updateVehicleInfoActions';
 import Typography from '@material-ui/core/Typography';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cards from '../usableComponents/ServiceRequestCard';
+import Cards from '../../../../widgets/usableComponents/ServiceRequestCard';
 import { ADDRCONFIG } from 'dns';
 
 class CurrentRequests extends Component {
@@ -10,14 +10,14 @@ class CurrentRequests extends Component {
         Avatar:'AD',
         Title: '12345',
         Date: '9/9/2019',
-        Content: 'This is test' 
+        Content: 'This is test'
       };
-         
+
   }
 
   render() {
     const serviceRequestArray  = this.props.serviceRequestData.serviceRequest;
-    
+
     return (
       <div>{ serviceRequestArray && serviceRequestArray.map(serviceRequest => {
         console.log(serviceRequest);
@@ -34,7 +34,7 @@ class CurrentRequests extends Component {
           <Cards {...data}/>
         )
       })}
-      
+
 
     </div>
     )

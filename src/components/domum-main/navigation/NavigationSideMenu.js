@@ -10,6 +10,9 @@ class NavigationSideMenu extends Component {
     return (
       <MenuList>
         <MenuItem>
+          <NavLink to="/home/userProfile">User Profile</NavLink>
+        </MenuItem>
+        <MenuItem>
           <NavLink to="/home/newsfeed">News</NavLink>
         </MenuItem>
         <MenuItem>

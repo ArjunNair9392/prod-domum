@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navbar from './components/header/Navbar';
-import Dashboard from './components/dashboard/Dashboard';
+import Navbar from './components/domum-main/navigation/header/Navbar';
+import Dashboard from './components/layout/Dashboard';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import ServiceRequest from './components/serviceRequest/ServiceRequest';
+import ServiceRequest from './components/domum-main/main-front/serviceRequest/ServiceRequest';
 
 class App extends Component {
   render() {
