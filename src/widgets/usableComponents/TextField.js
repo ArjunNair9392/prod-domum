@@ -12,7 +12,7 @@ const CssTextField = withStyles({
         color: '#ffa726',
       },
       '& .MuiInput-underline:after': {
-        borderBottomColor: 'white',
+        borderBottomColor: '#ffa726',
       },
       '& .MuiOutlinedInput-root': {
         '&.Mui-focused fieldset': {
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   dense: {
-    marginTop: theme.spacing(0),
+    marginTop: theme.spacing(3),
   },
   menu: {
     width: 200,
@@ -56,6 +56,7 @@ export default function OutlinedTextFields(props) {
         variant={props.variant}
         fullWidth = {props.fullWidth}
         placeholder = {props.placeholder}
+        type = {props.type}
         />
   );
 }

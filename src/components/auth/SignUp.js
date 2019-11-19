@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import TextField from '../../widgets/usableComponents/TextField';
+import DomumButton from '../../widgets/usableComponents/DomumButton';
 import { addUser } from '../../store/actions/signUpActions';
 
 
@@ -9,7 +12,8 @@ class SignUp extends Component {
     email: '',
     password: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
+    phoneNumber:''
   }
 
   handleChange = (e) => {
@@ -30,35 +34,49 @@ class SignUp extends Component {
     if (auth.uid) return <Redirect to='/' />
 
     return (
-      <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Sign Up</h5>
-
-          <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} />
-          </div>
-
-          <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} />
-          </div>
-
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
-          </div>
-
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
-          </div>
-
-          <div className="input-field">
-            <button className="btn orange lighten-1 z-depth-0">Sign Up</button>
-          </div>
-        </form>
-      </div>
+      <Grid container justify="center">
+        <Grid item xs={2}>
+            <TextField
+              id={'firstName'}
+              label={'First Name'}
+              fullWidth
+              onEdit={this.handleChange}
+            />
+            <br/>
+            <TextField
+              id={'lastName'}
+              label={'Last Name'}
+              fullWidth
+              onEdit={this.handleChange}
+            />
+            <br/>
+            <TextField
+              id={'phoneNumber'}
+              label={'Phone Number'}
+              fullWidth
+              onEdit={this.handleChange}
+            />
+            <br/>
+            <TextField
+              id={'email'}
+              label={'Email id'}
+              fullWidth
+              onEdit={this.handleChange}
+            />
+            <br/>
+            <TextField
+              id={'password'}
+              label={'Password'}
+              fullWidth
+              onEdit={this.handleChange}
+              type={'password'}
+            />
+            <br/>
+            <Grid container justify="center">
+            <DomumButton Content='Register' />
+            </Grid>
+        </Grid>
+      </Grid>
     )
   }
 }
