@@ -52,6 +52,7 @@ export default function OutlinedTextFields(props) {
         className={clsx(classes.textField, classes.dense)}
         value={props.value}
         onChange={props.onEdit}
+        onBlur={props.onBlur}
         margin="dense"
         variant={props.variant}
         fullWidth = {props.fullWidth}

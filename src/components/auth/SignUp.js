@@ -33,8 +33,8 @@ class SignUp extends Component {
   }
 
   render() {
-    const { auth } = this.props;
-    if(this.state.redirectToLogin){
+    const { signUp } = this.props;
+    if(signUp.redirectToLogin){
       return <Redirect to='/signin' />
     }
     return (
@@ -44,35 +44,35 @@ class SignUp extends Component {
               id={'firstName'}
               label={'First Name'}
               fullWidth
-              onEdit={this.handleChange}
+              onBlur={this.handleChange}
             />
             <br/>
             <TextField
               id={'lastName'}
               label={'Last Name'}
               fullWidth
-              onEdit={this.handleChange}
+              onBlur={this.handleChange}
             />
             <br/>
             <TextField
               id={'phoneNumber'}
               label={'Phone Number'}
               fullWidth
-              onEdit={this.handleChange}
+              onBlur={this.handleChange}
             />
             <br/>
             <TextField
               id={'email'}
               label={'Email id'}
               fullWidth
-              onEdit={this.handleChange}
+              onBlur={this.handleChange}
             />
             <br/>
             <TextField
               id={'password'}
               label={'Password'}
               fullWidth
-              onEdit={this.handleChange}
+              onBlur={this.handleChange}
               type={'password'}
             />
             <br/>

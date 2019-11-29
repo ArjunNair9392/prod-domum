@@ -10,15 +10,13 @@ export const addUser = (user) => {
             email: user.email,
             password: user.password
         }).then(() => {dispatch({
-            type: 'Add_User', 
+            type: 'ADD_USER',
             user: user
         });
     }).catch((err) => {dispatch({
-        type: 'Add_User_err', 
+        type: 'ADD_USER_ERR',
         err: err
-    });
-})
-        
-       
-    }
+      });
+    })
+  }
 };
