@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '../../widgets/usableComponents/TextField';
 import DomumButton from '../../widgets/usableComponents/DomumButton';
 import { addUser } from '../../store/actions/signUpActions';
+import SignIn from './SignIn';
 
 
 class SignUp extends Component {
@@ -13,7 +14,8 @@ class SignUp extends Component {
     password: '',
     firstName: '',
     lastName: '',
-    phoneNumber:''
+    phoneNumber:'',
+    redirectToLogin:false
   }
 
   handleChange = (e) => {
@@ -27,12 +29,14 @@ class SignUp extends Component {
     console.log('in SignUp');
     console.log(this.state);
     this.props.addUser(this.state);
+
   }
 
   render() {
     const { auth } = this.props;
-    if (auth.uid) return <Redirect to='/' />
-
+    if(this.state.redirectToLogin){
+      return <Redirect to='/signin' />
+    }
     return (
       <Grid container justify="center">
         <Grid item xs={2}>
@@ -73,7 +77,10 @@ class SignUp extends Component {
             />
             <br/>
             <Grid container justify="center">
-            <DomumButton Content='Register' />
+            <DomumButton
+              Content='Register'
+              onClick={this.handleSubmit}
+            />
             </Grid>
         </Grid>
       </Grid>
@@ -88,8 +95,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    auth: state.firebase.auth
+    signUp: state.signUp
   }
 }
 

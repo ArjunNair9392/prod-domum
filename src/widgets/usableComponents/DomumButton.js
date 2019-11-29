@@ -22,8 +22,7 @@ export default function DomumButton(props) {
   return (
     <Btn
       className={classes.button}
-      size="small" 
-      square
+      size="small"
       onClick={props.onClick}
     >
         {props.Content}
